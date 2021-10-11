@@ -43,7 +43,21 @@ version...it defines current version of your project or artifact thats going to 
 Description.. it is detailed description of your project which is used by maven to describe your project, so wherever
 your project is displayed this description will be added there alonf with it by maven
 
-mvn clean install
+mvn clean install ... clean commanf in has its own build lifecycle phase its one of first to be executed . clean command 
+clears up your target folder containing your compiled files and data, and install command in maven builds up the project it
+completes all previous phases of lifecycle which means it compiles both test and main files then packages them
+and finally adds them to your local repository so it can be used as dependency in other projects locally
+when you use mvn clean ,clean phase runs in each module before running the install phase for each module. making sure
+that you're really compiling each module from scratch.
+
+
+aggregation and inheritance are showed in the project itself where if you look it from parents side where its containing
+child module tags making it aggregate at one place, whereas for perspective and usage from child module its inheritance of properties 
+by parent.Project Aggregation is similar to Project Inheritance. But instead of specifying the parent POM from the module, it specifies the modules from the parent POM. 
+By doing so, the parent project now knows its modules, and  if a Maven command is invoked against the parent project, that 
+Maven command will then be executed to the parent's modules as well. and The Super POM is one example of project inheritance and you can
+also make a pom parent and add child modules to it dependencies ,plugin lists,,plugin configuration, resources and 
+other properties can be inherited.
 
 
 
